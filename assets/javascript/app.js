@@ -4,58 +4,120 @@
 // create a timer
 // correct, incorrect, unanswered
 
+$(document).ready(function(){
+
+var quiz = [
+    
+    {
+        ques: "Who was the drug sales associate?",
+        choices: ["answer","answer","answer","answer"],
+        answer: "answer",
+
+},
+{
+    ques: "What was Jason's favorite team?" ,
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "What was Chidi's profession - ethics prof?",
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who was the EDM DJ?",
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who got hit by a truck from picking up the lonely gal margarita mix?",
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who was raised in a high society England?" ,
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who died from an air conditioner falling from the 3rd floor and landing on his/her head?",
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who provided all the knowledge and information for the humans?",
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who was the Bad Place architect in charged of the Good Place?" ,
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+},
+{
+    ques: "Who was in the Medium place?" ,
+    choices: ["answer","answer","answer","answer"],
+    answer: "answer",
+
+}];
 
 
-var quiz = {
-    questions: {
-        ques1: "Who was the drug sales associate?",
-        ques2: "What was Jason's favorite team?" ,
-        ques3: "What was Chidi's profession - ethics prof?" ,
-        ques4: "Who was the EDM DJ?",
-        ques5: "Who got hit by a truck from picking up the lonely gal margarita mix?",
-        ques6: "Who was raised in high society England?" ,
-        ques7: "Who died from an air conditioner falling from the 3rd floor and landing on his/her head?" ,
-        ques8: "Who provided all the knowledge and information for the humans?" , 
-        ques9: "Who was the Bad Place architect in charged of the Good Place?" ,
-        ques10: "Who was in the Medium place?" ,
-    },
-
-    choices: {
-        ques1: [],
-        ques2: [],
-        ques3: [],
-        ques4: [],
-        ques5: [],
-        ques6: [],
-        ques7: [],
-        ques8: [],
-        ques9: [],
-        ques10: [],
-
-    },
-
-    answers: {
-        ques1: [],
-        ques2: [],
-        ques3: [],
-        ques4: [],
-        ques5: [],
-        ques6: [],
-        ques7: [],
-        ques8: [],
-        ques9: [],
-        ques10: [],
-
-    },
+var correct = 0;
+var wrong = 0;
+var unanswered = 0;
+var timer = 20;
+var currentSet = 0;
+var timerOn = false;
+var timerId = " " ;
 
 
+function startGame () {
+    currentSet = 0;
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+    clearInterval(timerId);
 
+    $("#game").show();
 
+    $('#scores').html('');
 
+    $('#timer').text(timer);
 
+    $('#start').hide();
 
-
-
-
+    $('#remaining-time').show();
 
 }
+
+function displayQuestions (){
+    $("#question-list").empty ();
+    for (var i = 0; i < 10; i++) {
+        $("#question-list").prepend('<div class="' + quiz[i] + '"></div>');
+
+
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+startGame ()
+displayQuestions ()
+
+})
