@@ -10,92 +10,83 @@ var quiz = [
     
     {
         ques: "Who was a former drug sales associate?",
-        choices: ["answer","answer","answer","answer"],
+        choices: ["Chidi","Tahani","Jason","Eleanor"],
         name: "sales",
-        answer: "answer",
+        answer: "Eleanor",
 
 },
 {
     ques: "What was Jason's favorite team?" ,
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Titans","Jaguars","Falcons","Texans"],
     name: "team",
-    answer: "answer",
+    answer: "Jaguars",
 
 },
 {
-    ques: "What was Chidi's profession - ethics prof?",
-    choices: ["answer","answer","answer","answer"],
+    ques: "What was Chidi's profession?",
+    choices: ["Ethics Professor","Drug Sales Associate","Accountant","Surgeon"],
     name: "Ethics",
-    answer: "answer",
+    answer: "Ethics Professor",
 
 },
 {
     ques: "Who was the EDM DJ?",
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Michael","Tahani","Jason","Eleanor"],
     name: "DJ",
-    answer: "answer",
+    answer: "Jason",
 
 },
 {
     ques: "Who got hit by a truck from picking up the lonely gal margarita mix?",
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Chidi","Tahani","Jason","Eleanor"],
     name: "margarita",
-    answer: "answer",
+    answer: "Eleanor",
 
 },
 {
     ques: "Who was raised in a high society England?" ,
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Chidi","Tahani","Jason","Eleanor"],
     name: "england",
-    answer: "answer",
+    answer: "Tahani",
 
 },
 {
     ques: "Who died from an air conditioner falling from the 3rd floor and landing on their head?",
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Chidi","Tahani","Jason","Eleanor"],
     name: "ac",
-    answer: "answer",
+    answer: "Chidi",
 
 },
 {
     ques: "Who provided all the knowledge and information for the humans?",
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Eleanor","Chidi","Janet","Michael"],
     name: "robot",
-    answer: "answer",
+    answer: "Janet",
 
 },
 {
     ques: "Who was the Bad Place architect in charged of the Good Place?" ,
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Jason","Chidi","Janet","Michael"],
     name: "architect",
-    answer: "answer",
+    answer: "Michael",
 
 },
 {
     ques: "Who lived in the Medium place?" ,
-    choices: ["answer","answer","answer","answer"],
+    choices: ["Mindy St. Claire","Shawn","Pillboi","Judge"],
     name: "medium",
-    answer: "answer",
+    answer: "Mindy St. Claire",
 
 }];
 
-//     currentSet = 0;
-//     correct = 0;
-//     incorrect = 0;
-//     unanswered = 0;
-//     clearInterval(timerId);
 
-// var counter = 30;
 var correct = 0;
-var wrong = 0;
+var incorrect = 0;
 var unanswered = 0;
-var counter = 20;
-var timer;
-// var currentSet = 0;
 var timerOn = false;
 var timerId = " " ;
 var labels = ["first", "second", "third", "forth"];
-var twoMin = 120;
+var twoMin = 10;
 
 
 
@@ -136,14 +127,16 @@ function displayQuestions (){
 
 function timesUp () {
     twoMin = twoMin - 1;
-    if (twoMin < 180) {
+    if (twoMin < 10) {
         $('#timer').text("Time Remaining: " + twoMin);
     }
     
-    if (twoMin < 1) {
-        window.clearInterval(update);
+    else if (twoMin <= 1) {
+        $('#results').fadeOut(500);
+        clearInterval(update);
 
     }
+    
 }
 
 
@@ -151,4 +144,20 @@ function timesUp () {
 
 
 
+
+
+
 })
+
+
+
+
+// Display questions & radio button for answers
+
+// Player cannot pick more than one answer
+
+// When timer is up, it must stop player 
+
+// timer needs to stop at 0
+
+// Fade out to results page ("Congrats!! You're Done!!) with correct, incorrect, unanswered tallies from the radio input. 
