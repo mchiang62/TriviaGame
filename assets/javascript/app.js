@@ -113,16 +113,24 @@ function displayQuestions (){
     $("#question-list").empty ();
 
     for (var q = 0; q < 10; q++) {
-        $('#question-list').prepend('<div class="' + quiz[q].name + '"></div>');
-        $(quiz[q].divClass).append('<div class ="ques-title">' + quiz[q].ques + '</div>');
-        // need radio buttons
+        $('#question-list').prepend('<div class="' + quiz[q].name + '">' + quiz[q].ques + ' </div>');
+        
         for (var i = 0; i <= 3; i++) {
-            $(quiz[q].divClass).append('<input type="radio"  name="' + quiz[q].name + '" value="' + quiz[q].choices[i] + '"/><label for="' + labels[i] + '">' + quiz[q].choices[i] + '</label>');
+            $('.' + quiz[q].name).append('<p class="answers">' + quiz[q].choices[i] + '</p>');
         }
+
+
         $('#question-list').prepend('<hr />');
 
     }
+ 
+    $(".answers").on('click', function() {
+        console.log($(this).text())
+        // have it highlight when user presses the answers css and js
     
+    });
+
+
 }
 
 function timesUp () {
@@ -131,9 +139,10 @@ function timesUp () {
         $('#timer').text("Time Remaining: " + twoMin);
     }
     
-    else if (twoMin <= 1) {
-        $('#results').fadeOut(500);
+     if (twoMin < 1) {
+        // $('#results').fadeOut(500);
         clearInterval(update);
+        // hide everything by emptying and show results.
 
     }
     
