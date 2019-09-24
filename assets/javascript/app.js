@@ -100,6 +100,7 @@ $("#start-btn").on('click', function() {
 function startGame () {
     console.log('started')
     $('#start-btn').hide();
+    $('#instructions').hide();
     // $('#question-list').text(quiz); - creating a function for this
     $('#remaining-time').show();
     // $('#timer').text(counter); - need create function for this
@@ -118,15 +119,21 @@ function displayQuestions (){
         for (var i = 0; i <= 3; i++) {
             $('.' + quiz[q].name).append('<p class="answers">' + quiz[q].choices[i] + '</p>');
         }
-
-
+        
+// need the answers to be colored and preferably show a hand cursor
+        $(".answers").css("background-color", "yellow");
         $('#question-list').prepend('<hr />');
 
     }
+
+    
  
     $(".answers").on('click', function() {
         console.log($(this).text())
-        // have it highlight when user presses the answers css and js
+        // all need to be colored but it needs to be highlighted a different color when user presses the answers css and js
+        $(this).css("background-color", "pink");
+        // player cannot pick more than one answer
+
     
     });
 
@@ -140,9 +147,14 @@ function timesUp () {
     }
     
      if (twoMin < 1) {
-        // $('#results').fadeOut(500);
         clearInterval(update);
         // hide everything by emptying and show results.
+        $(".container").empty ();
+        $(".container").text("Congrats!! You're Done!! :)")
+        // need to create if else statements
+        // need to tally the correct answers - need to make loop for answers
+        // whenever the final choices is chosen (onclick function), that needs to be calculated
+
 
     }
     
@@ -169,4 +181,4 @@ function timesUp () {
 
 // timer needs to stop at 0
 
-// Fade out to results page ("Congrats!! You're Done!!) with correct, incorrect, unanswered tallies from the radio input. 
+// empty to results page (Congrats!! You're Done!!) with correct, incorrect, unanswered tallies from the on click .answers function. 
