@@ -83,10 +83,9 @@ var quiz = [
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-var timerOn = false;
-var timerId = " " ;
-var labels = ["first", "second", "third", "forth"];
-var twoMin = 10;
+// var timerOn = false;
+// var timerId = " " ;
+var twoMin = 15;
 
 
 
@@ -117,47 +116,71 @@ function displayQuestions (){
         $('#question-list').prepend('<div class="' + quiz[q].name + '">' + quiz[q].ques + ' </div>');
         
         for (var i = 0; i <= 3; i++) {
-            $('.' + quiz[q].name).append('<p class="answers">' + quiz[q].choices[i] + '</p>');
+            $('.' + quiz[q].name).append(`<input type="radio" name="answer${q}" class="answers"> ${quiz[q].choices[i]} </input>`);
+
         }
+        console.log(displayQuestions)
         
 // need the answers to be colored and preferably show a hand cursor
-        $(".answers").css("background-color", "yellow");
+        // $(".answers").css("background-color", "gray");
         $('#question-list').prepend('<hr />');
 
     }
 
-    
- 
-    $(".answers").on('click', function() {
-        console.log($(this).text())
+    // $(".answers").on('click', function() {
+        //     console.log($(this).text())
         // all need to be colored but it needs to be highlighted a different color when user presses the answers css and js
-        $(this).css("background-color", "pink");
+        // $(this).css("background-color", "pink");
         // player cannot pick more than one answer
+        
+        // });
+        
+        
+    }
 
     
-    });
-
-
-}
-
-function timesUp () {
+    
+    function timesUp () {
+       
     twoMin = twoMin - 1;
-    if (twoMin < 10) {
+    if (twoMin < 15) {
         $('#timer').text("Time Remaining: " + twoMin);
     }
     
      if (twoMin < 1) {
         clearInterval(update);
+
+    
+    
+        for (var c = 0; c < quiz.length; c++) {
+            console.log(quiz[c].ques)
+            // console.log($())
+            if (quiz[c].ques === $(input[name="answer${c}"]:checked).val()){
+                console.log(yes)
+            }
+            
+            // checked val
+            // if correct = answer
+
+// correct = 0;
+// incorrect = 0;
+// unanswered = 0;
+
+        
+        
+
+        
         // hide everything by emptying and show results.
         $(".container").empty ();
         $(".container").text("Congrats!! You're Done!! :)")
+        $(".container").append("Results will go here")
         // need to create if else statements
         // need to tally the correct answers - need to make loop for answers
         // whenever the final choices is chosen (onclick function), that needs to be calculated
-
-
-    }
     
+    }
+    } 
+        
 }
 
 
