@@ -83,9 +83,7 @@ var quiz = [
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-// var timerOn = false;
-// var timerId = " " ;
-var twoMin = 15;
+var twoMin = 12;
 
 
 
@@ -119,7 +117,7 @@ function displayQuestions (){
             $('.' + quiz[q].name).append(`<input type="radio" name="answer${q}" class="answers"> ${quiz[q].choices[i]} </input>`);
 
         }
-        console.log(displayQuestions)
+        // console.log(displayQuestions)
         
 // need the answers to be colored and preferably show a hand cursor
         // $(".answers").css("background-color", "gray");
@@ -143,37 +141,33 @@ function displayQuestions (){
     function timesUp () {
        
     twoMin = twoMin - 1;
-    if (twoMin < 15) {
+    if (twoMin < 12) {
         $('#timer').text("Time Remaining: " + twoMin);
     }
     
      if (twoMin < 1) {
         clearInterval(update);
 
-    
-    
-        for (var c = 0; c < quiz.length; c++) {
-            console.log(quiz[c].ques)
-            // console.log($())
-            if (quiz[c].ques === $(input[name="answer${c}"]:checked).val()){
-                console.log(yes)
-            }
-            
-            // checked val
-            // if correct = answer
+        for (var i = 0; i < 10; i++) {
 
-// correct = 0;
-// incorrect = 0;
-// unanswered = 0;
+            if (quiz[i].answer === $(`input:radio[name="answer${i}"]:checked`).val()) {
 
-        
+                correct++;
+                console.log("correct" + i)
+            } else {
+                incorrect++;
+                console.log("incorrect" + i)
+            };
         
 
         
         // hide everything by emptying and show results.
         $(".container").empty ();
-        $(".container").text("Congrats!! You're Done!! :)")
-        $(".container").append("Results will go here")
+        $(".container").html("<h1>Yay!! You're Done!! :)</h1>");
+        $(".container").append("<p>Correct: " + correct + "</p>");
+        $(".container").append("<p>Incorrect: " + incorrect + "</p>");
+        $(".container").append("<p>Unanswered: " + unanswered + "</p>");
+        
         // need to create if else statements
         // need to tally the correct answers - need to make loop for answers
         // whenever the final choices is chosen (onclick function), that needs to be calculated
@@ -182,11 +176,6 @@ function displayQuestions (){
     } 
         
 }
-
-
-
-
-
 
 
 
@@ -205,3 +194,19 @@ function displayQuestions (){
 // timer needs to stop at 0
 
 // empty to results page (Congrats!! You're Done!!) with correct, incorrect, unanswered tallies from the on click .answers function. 
+
+// for (var c = 0; c < quiz.length; c++) {
+        //     console.log(quiz[c].ques)
+        //     // console.log($())
+        //     if (quiz[c].ques === $(`input[type="radio"]:checked`).val()){
+        //         alert("yes")
+        //     }
+            
+            // checked val
+            // if correct = answer
+
+// correct = 0;
+// incorrect = 0;
+// unanswered = 0;
+// $(input[name="answer${c}"]:checked).val()
+        
