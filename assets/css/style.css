@@ -1,8 +1,15 @@
 body {
-    background-image: url('https://www.whats-on-netflix.com/wp-content/uploads/2019/01/the-good-place-season-3-netflix-release-schedule.jpg');
+    background-image: url('https://i.pinimg.com/originals/b5/45/9f/b5459f3beaf57711bb8ad812d086e3b7.jpg');
 }
 
 .container {
     background-color: white;
+    margin-top: 40px;
+    padding: 25px;
     
+
+}
+
+h1 {
+    color: coral;
 }

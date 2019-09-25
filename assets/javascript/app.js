@@ -83,7 +83,7 @@ var quiz = [
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-var twoMin = 12;
+var twoMin = 120;
 
 
 
@@ -117,21 +117,11 @@ function displayQuestions (){
             $('.' + quiz[q].name).append(`<input type="radio" name="answer${q}" class="answers"> ${quiz[q].choices[i]} </input>`);
 
         }
-        // console.log(displayQuestions)
+     
         
-// need the answers to be colored and preferably show a hand cursor
-        // $(".answers").css("background-color", "gray");
         $('#question-list').prepend('<hr />');
 
     }
-
-    // $(".answers").on('click', function() {
-        //     console.log($(this).text())
-        // all need to be colored but it needs to be highlighted a different color when user presses the answers css and js
-        // $(this).css("background-color", "pink");
-        // player cannot pick more than one answer
-        
-        // });
         
         
     }
@@ -141,7 +131,7 @@ function displayQuestions (){
     function timesUp () {
        
     twoMin = twoMin - 1;
-    if (twoMin < 12) {
+    if (twoMin < 120) {
         $('#timer').text("Time Remaining: " + twoMin);
     }
     
@@ -209,4 +199,11 @@ function displayQuestions (){
 // incorrect = 0;
 // unanswered = 0;
 // $(input[name="answer${c}"]:checked).val()
+
+  // $(".answers").on('click', function() {
+        //     console.log($(this).text())
+        // all need to be colored but it needs to be highlighted a different color when user presses the answers css and js
+        // $(this).css("background-color", "pink");
+        // player cannot pick more than one answer
         
+        // });
